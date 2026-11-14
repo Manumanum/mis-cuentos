@@ -1,46 +1,481 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colección de Cuentos</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Tipografía serif elegante para lectura -->
+  <title>De cuando anduve por ahí — Relatos, pensamientos e ilustraciones</title>
+  <meta name="description"
+    content="Relatos cortos, pensamientos random, ilustraciones sueltas y cosas importantes que probablemente no lo son." />
+
+  <!-- Tipografías de Google Fonts: 'Lora' (lectura) e 'Inter' (menús y etiquetas) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <main class="container">
-    <header class="header">
-      <h1 class="site-title">Cuentos y Relatos</h1>
-      <p class="site-subtitle">Un rincón de historias ilustradas</p>
-    </header>
+<body id="inicio">
 
-    <section class="story-index">
-      <ul class="story-list">
-        
-        <li class="story-card">
-          <a href="cuentos/plan-alguna-vez.html">
-            <h2 class="story-title">Plan para ejecutar alguna vez</h2>
-            <p class="story-excerpt">Retrocedamos juntos el tiempo… hasta que no importe.</p>
-            <span class="read-more">Leer cuento →</span>
-          </a>
-        </li>
+  <!-- ======================================================================
+       1. CABECERA Y MENÚ DE NAVEGACIÓN SUTIL
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Título principal a la izquierda -->
+      <a href="#inicio" class="brand-title" title="Ir al inicio">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>De cuando anduve por ahí</span>
+      </a>
 
-        <li class="story-card">
-          <a href="cuentos/la-otra.html">
-            <h2 class="story-title">La otra</h2>
-            <p class="story-excerpt">De pronto, estábamos en ese cuarto, tú y yo. Pero este cuarto era, de hecho, una
-              casa...</p>
-            <span class="read-more">Leer cuento →</span>
-          </a>
-        </li>
+      <!-- Control de menú para móviles (compatible 100% sin dependencias) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Abrir o cerrar menú de navegación" />
+      <label for="nav-toggle" class="nav-toggle-label" title="Menú">
+        <span class="nav-toggle-icon"><span></span></span>
+        <span>Menú</span>
+      </label>
 
-      </ul>
+      <!-- Menú de navegación a la derecha -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active">[ Inicio ]</a></li>
+          <li><a href="#cuentos" class="nav-link">[ Cuentos ]</a></li>
+          <li><a href="#pensamientos" class="nav-link">[ Pensamientos ]</a></li>
+          <li><a href="#dibujos" class="nav-link">[ Dibujos ]</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="site-wrapper">
+
+    <!-- ======================================================================
+         2. SECCIÓN DE BIENVENIDA (TEXTO Y PERSONALIDAD)
+         ====================================================================== -->
+    <section class="hero-section">
+      <header class="hero-header">
+        <h1 class="hero-main-title">De cuando anduve por ahí</h1>
+        <p class="hero-subtitle">
+          Relatos cortos, pensamientos random, ilustraciones sueltas y cosas importantes que probablemente no lo son.
+        </p>
+      </header>
+
+      <!-- Bloque de bienvenida destacado (estilo hoja de cuaderno con gato asomándose) -->
+      <div class="welcome-card-wrapper">
+
+        <!-- ILUSTRACIÓN SUTIL: Gato asomándose sobre el borde superior de la libreta -->
+        <div class="cat-peeking" aria-hidden="true" title="Un gato asomándose curioso">
+          <svg viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Oreja izquierda -->
+            <path d="M38 78 L26 28 L58 48 Z" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M33 38 L42 62 L52 50 Z" fill="#FFD6A5"/>
+            <!-- Oreja derecha -->
+            <path d="M122 78 L134 28 L102 48 Z" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M127 38 L118 62 L108 50 Z" fill="#FFD6A5"/>
+            <!-- Cabeza -->
+            <path d="M36 78 C36 44, 124 44, 124 78" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2.5"/>
+            <!-- Ojos cerrados apacibles / curiosos -->
+            <path d="M60 62 C64 58, 70 58, 74 62" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M86 62 C90 58, 96 58, 100 62" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Nariz y hocico -->
+            <path d="M78 67 L82 67 L80 70 Z" fill="#FFD6A5" stroke="#2C3E50" stroke-width="1.2"/>
+            <path d="M80 70 C77 73 74 72 72 71" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M80 70 C83 73 86 72 88 71" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Bigotes izquierdos -->
+            <line x1="62" y1="67" x2="38" y2="64" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="62" y1="70" x2="36" y2="72" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Bigotes derechos -->
+            <line x1="98" y1="67" x2="122" y2="64" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="98" y1="70" x2="124" y2="72" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Patitas apoyadas en el borde -->
+            <path d="M48 78 C48 73 57 73 57 78 Z" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2"/>
+            <path d="M103 78 C103 73 112 73 112 78 Z" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <article class="welcome-card">
+          <div class="welcome-text">
+            <span class="greeting">Hola.</span>
+            <p>
+              Quizás uno de estos días el mundo termine, por la IA, por alguna guerra, o simplemente por alguna de esas
+              cosas por las que terminamos diciendo algo como... y sí, es que somos así.
+            </p>
+            <p>
+              También podría suceder que quizás el mundo no termine, y todo sea como siempre ha sido: un día que da paso
+              al siguiente, y luego llega otro mes, otro año, otra época. Nuevos tiempos haciéndose lugar mientras dejan
+              atrás todo lo viejo.
+            </p>
+            <p>
+              Sea como sea, uno de estos días pensé que no era tan buena idea escribir cosas y que nadie nunca las
+              leyera.
+            </p>
+            <p>
+              Antes de que Mi Tiempo termine, he decidido publicar esas cosas.
+            </p>
+            <p>
+              Siempre me guío por mi intuición. Y mi intuición me acaba de decir que ahora es el momento.
+            </p>
+          </div>
+
+          <div class="welcome-footer-tag">
+            <span class="welcome-caption">— Apuntes desde el escritorio</span>
+            <span>Cuaderno personal</span>
+          </div>
+        </article>
+      </div>
     </section>
-  </main>
+
+    <!-- ======================================================================
+         3. BLOQUE DESTACADO ("LO ÚLTIMO / RECOMENDADO")
+         (Fácilmente editable de forma manual al publicar algo nuevo)
+         ====================================================================== -->
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <div class="featured-card">
+        <div class="featured-header">
+          <div class="featured-badge-group">
+            <span class="badge-featured" id="featured-heading">★ Lo último / Recomendado</span>
+            <span class="badge-tag">#tiempo</span>
+            <span class="badge-tag">#reflexión</span>
+          </div>
+          <span class="featured-meta">3 min de lectura</span>
+        </div>
+
+        <h2 class="featured-title">Plan para ejecutar alguna vez</h2>
+
+        <p class="featured-excerpt">
+          Retrocedamos juntos el tiempo… hasta que no importe. O quizás un poquito menos: solo retrocedamos nuestros
+          relojes, nuestros calendarios, las pruebas de nuestros días. Pero si lo hacemos, hagámoslo bien...
+        </p>
+
+        <div>
+          <a href="cuentos/plan-alguna-vez.html" class="btn-read">
+            <span>Leer relato completo</span>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. VISTAS PREVIAS DE LAS 3 SECCIONES
+         ====================================================================== -->
+
+    <!-- SECCIÓN 1: CUENTOS BREVES -->
+    <section id="cuentos" class="section-block" aria-labelledby="cuentos-title">
+      <div class="section-header-wrap">
+        <h2 id="cuentos-title" class="section-title">
+          <span class="section-number">01</span>
+          <span>Cuentos breves</span>
+        </h2>
+        <span class="section-desc">Historias completas para leer con calma</span>
+      </div>
+
+      <div class="story-cards-grid">
+
+        <!-- Cuento 1: Plan para ejecutar alguna vez -->
+        <article class="story-card-item">
+          <div>
+            <div class="card-tags">
+              <span class="tag-badge">#tiempo</span>
+              <span class="tag-badge">#nostalgia</span>
+            </div>
+            <h3 class="story-card-title">Plan para ejecutar alguna vez</h3>
+            <p class="story-card-excerpt">
+              Retrocedamos juntos el tiempo… hasta que no importe. Deberemos, asimismo, borrar todas las hojas de
+              cuadernos que hayamos escrito y coser los pantalones rotos...
+            </p>
+          </div>
+          <div class="story-card-footer">
+            <span class="story-reading-time">3 min de lectura</span>
+            <a href="cuentos/plan-alguna-vez.html" class="story-link-action">
+              <span>Leer</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Cuento 2: La otra -->
+        <article class="story-card-item">
+          <div>
+            <div class="card-tags">
+              <span class="tag-badge">#onírico</span>
+              <span class="tag-badge">#ficción</span>
+            </div>
+            <h3 class="story-card-title">La otra</h3>
+            <p class="story-card-excerpt">
+              De pronto, estábamos en ese cuarto, tú y yo. Pero este cuarto era, de hecho, una casa. Yo andaba en
+              bicicleta y en el segundo piso alguien esperaba en silencio...
+            </p>
+          </div>
+          <div class="story-card-footer">
+            <span class="story-reading-time">4 min de lectura</span>
+            <a href="cuentos/la-otra.html" class="story-link-action">
+              <span>Leer</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- Cuento 3: El paraguas bajo la lluvia -->
+        <article class="story-card-item">
+          <div>
+            <div class="card-tags">
+              <span class="tag-badge">#urbano</span>
+              <span class="tag-badge">#cotidiano</span>
+            </div>
+            <h3 class="story-card-title">El paraguas bajo la lluvia</h3>
+            <p class="story-card-excerpt">
+              Había algo sutil en la forma en que la lluvia caía sobre las calles esa tarde. El contraste del paraguas
+              rojo encendía la penumbra del paisaje grisáceo...
+            </p>
+          </div>
+          <div class="story-card-footer">
+            <span class="story-reading-time">2 min de lectura</span>
+            <a href="cuentos/cuento-1.html" class="story-link-action">
+              <span>Leer</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: PENSAMIENTOS RANDOM (BITÁCORA / NOTA AL MARGEN) -->
+    <section id="pensamientos" class="section-block" aria-labelledby="pensamientos-title">
+      <div class="section-header-wrap">
+        <h2 id="pensamientos-title" class="section-title">
+          <span class="section-number">02</span>
+          <span>Pensamientos random</span>
+        </h2>
+        <span class="section-desc">Bitácora de margen y apuntes rápidos</span>
+      </div>
+
+      <div class="notes-grid">
+
+        <!-- Nota al margen 1 -->
+        <article class="margin-note-card">
+          <span class="tape-strip tape-peach" aria-hidden="true"></span>
+          <div class="note-meta">
+            <span class="note-number">Nota #14</span>
+            <time>02:18 AM</time>
+          </div>
+          <blockquote class="note-content">
+            "Hay días en que uno escribe para no olvidar, y días en que escribe para ver si poniéndolo en papel las cosas
+            dejan de doler un poco, o al menos hacen gracia."
+          </blockquote>
+          <div class="note-footer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            <span>Apunte en la servilleta de un café</span>
+          </div>
+        </article>
+
+        <!-- Nota al margen 2 -->
+        <article class="margin-note-card">
+          <span class="tape-strip tape-mint" aria-hidden="true"></span>
+          <div class="note-meta">
+            <span class="note-number">Nota #09</span>
+            <time>Martes gris</time>
+          </div>
+          <blockquote class="note-content">
+            "El gato se sentó encima del cuaderno abierto. Me miró fijamente durante cinco minutos. Creo que sabe
+            perfectamente cómo desenredar mis dilemas existenciales, pero prefiere dormir la siesta."
+          </blockquote>
+          <div class="note-footer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Al pie de página</span>
+          </div>
+        </article>
+
+        <!-- Nota al margen 3 -->
+        <article class="margin-note-card">
+          <span class="tape-strip tape-peach" aria-hidden="true"></span>
+          <div class="note-meta">
+            <span class="note-number">Nota #03</span>
+            <time>En el autobús</time>
+          </div>
+          <blockquote class="note-content">
+            "Guardar un boleto usado en el bolsillo del abrigo: la forma más barata de viajar en el tiempo cuando llegue
+            el próximo invierno."
+          </blockquote>
+          <div class="note-footer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            <span>Boleto doblado en cuatro</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: DIBUJOS (CUADRÍCULA VISUAL TIPO GALERÍA) -->
+    <section id="dibujos" class="section-block" aria-labelledby="dibujos-title">
+      <div class="section-header-wrap">
+        <h2 id="dibujos-title" class="section-title">
+          <span class="section-number">03</span>
+          <span>Dibujos e ilustraciones</span>
+        </h2>
+        <span class="section-desc">Trazos a mano alzada y esquinas del cuaderno</span>
+      </div>
+
+      <div class="gallery-grid">
+
+        <!-- Dibujo 1: Gato en la ventana -->
+        <!-- NOTA: Para usar una imagen tuya, simplemente reemplaza el <svg> por: -->
+        <!-- <img src="assets/nombre-de-tu-foto.png" alt="Descripción" /> -->
+        <article class="drawing-item">
+          <div class="drawing-frame">
+            <svg class="vector-illustration" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustración de gato descansando">
+              <rect width="240" height="180" fill="#FAF6EC"/>
+              <!-- Marco de ventana -->
+              <rect x="35" y="25" width="170" height="130" rx="4" stroke="#2C3E50" stroke-width="2.5" fill="#FFFDF9"/>
+              <line x1="120" y1="25" x2="120" y2="155" stroke="#2C3E50" stroke-width="1.8" stroke-dasharray="4 4"/>
+              <line x1="35" y1="90" x2="205" y2="90" stroke="#2C3E50" stroke-width="1.8"/>
+              <!-- Luna o planta exterior suave -->
+              <circle cx="165" cy="55" r="18" fill="#FDF6BD" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M50 85 Q 55 70 70 75 Q 85 80 80 88" stroke="#BCEAD5" stroke-width="3" stroke-linecap="round"/>
+              <!-- Gato durmiendo en el alféizar -->
+              <ellipse cx="120" cy="142" rx="36" ry="16" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2"/>
+              <circle cx="95" cy="136" r="14" fill="#FAF6EC" stroke="#2C3E50" stroke-width="2"/>
+              <path d="M88 126 L83 118 L94 123 Z" fill="#FFD6A5" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M98 123 L105 117 L103 126 Z" fill="#FFD6A5" stroke="#2C3E50" stroke-width="1.5"/>
+              <path d="M90 138 Q 94 142 98 138" stroke="#2C3E50" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Cola cayendo suavemente -->
+              <path d="M152 144 Q 165 148 162 158 Q 158 165 152 162" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="drawing-info">
+            <h3 class="drawing-title">El gato del alféizar</h3>
+            <div class="drawing-meta">
+              <span>Tinta y papel</span>
+              <span>Boceto #01</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dibujo 2: El paraguas bajo la lluvia -->
+        <article class="drawing-item">
+          <div class="drawing-frame">
+            <svg class="vector-illustration" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustración de paraguas bajo la lluvia">
+              <rect width="240" height="180" fill="#FAF6EC"/>
+              <!-- Gotas de lluvia sutiles -->
+              <line x1="50" y1="30" x2="42" y2="52" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <line x1="85" y1="18" x2="77" y2="40" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <line x1="180" y1="25" x2="172" y2="48" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <line x1="210" y1="45" x2="202" y2="68" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <line x1="60" y1="110" x2="52" y2="132" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <line x1="190" y1="115" x2="182" y2="138" stroke="#BCEAD5" stroke-width="2" stroke-linecap="round"/>
+              <!-- Paraguas cálido -->
+              <path d="M75 95 C75 55, 165 55, 165 95 C145 92, 135 92, 120 95 C105 92, 95 92, 75 95 Z" fill="#FFD6A5" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M120 52 L120 135 C120 144, 110 144, 110 138" stroke="#2C3E50" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Charco en el suelo -->
+              <ellipse cx="120" cy="158" rx="48" ry="7" fill="#EBF7F1" stroke="#2C3E50" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="drawing-info">
+            <h3 class="drawing-title">Tarde lluviosa</h3>
+            <div class="drawing-meta">
+              <span>Acuarela suave</span>
+              <span>Boceto #02</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Dibujo 3: Café y cuaderno abierto -->
+        <article class="drawing-item">
+          <div class="drawing-frame">
+            <svg class="vector-illustration" viewBox="0 0 240 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustración de cuaderno y taza de café">
+              <rect width="240" height="180" fill="#FAF6EC"/>
+              <!-- Cuaderno abierto -->
+              <path d="M40 70 L115 65 L115 145 L40 140 Z" fill="#FFFDF9" stroke="#2C3E50" stroke-width="2"/>
+              <path d="M115 65 L190 70 L190 140 L115 145 Z" fill="#FFFDF9" stroke="#2C3E50" stroke-width="2"/>
+              <!-- Lomo del cuaderno -->
+              <line x1="115" y1="65" x2="115" y2="145" stroke="#FFD6A5" stroke-width="3"/>
+              <!-- Líneas simuladas de texto -->
+              <line x1="52" y1="85" x2="102" y2="83" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <line x1="52" y1="98" x2="102" y2="96" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <line x1="52" y1="111" x2="92" y2="109" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <line x1="128" y1="83" x2="178" y2="85" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <line x1="128" y1="96" x2="178" y2="98" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <line x1="128" y1="109" x2="165" y2="111" stroke="#2C3E50" stroke-width="1.2" opacity="0.4"/>
+              <!-- Taza de café -->
+              <ellipse cx="178" cy="46" rx="18" ry="8" fill="#FFFDF9" stroke="#2C3E50" stroke-width="2"/>
+              <path d="M160 46 C160 62 196 62 196 46 Z" fill="#BCEAD5" stroke="#2C3E50" stroke-width="2"/>
+              <path d="M196 48 C204 48 204 56 195 57" stroke="#2C3E50" stroke-width="2" fill="none"/>
+              <!-- Humo de la taza -->
+              <path d="M174 34 Q 171 26 176 18" stroke="#2C3E50" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+              <path d="M182 32 Q 185 24 180 16" stroke="#2C3E50" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="drawing-info">
+            <h3 class="drawing-title">Café y libreta</h3>
+            <div class="drawing-meta">
+              <span>Lápiz y plumilla</span>
+              <span>Boceto #03</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </div><!-- /.site-wrapper -->
+
+  <!-- ======================================================================
+       PIE DE PÁGINA (FOOTER)
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">De cuando anduve por ahí</div>
+      <p class="footer-tagline">
+        Relatos cortos, pensamientos random, ilustraciones sueltas y cosas importantes que probablemente no lo son.
+      </p>
+
+      <ul class="footer-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#cuentos">Cuentos</a></li>
+        <li><a href="#pensamientos">Pensamientos</a></li>
+        <li><a href="#dibujos">Dibujos</a></li>
+      </ul>
+
+      <a href="#inicio" class="back-to-top" title="Volver arriba">
+        <span>↑ Volver al inicio</span>
+      </a>
+
+      <p class="footer-copy">
+        Hecho a mano · Cuaderno personal &copy; 2026
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LIGERO: Cierra automáticamente el menú móvil al hacer clic en un enlace -->
+  <script>
+    (function () {
+      const toggle = document.getElementById('nav-toggle');
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (toggle && toggle.checked) {
+            toggle.checked = false;
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
